@@ -1,0 +1,12 @@
+{
+  "name": "haxe-ionic-cordova",
+  "url": "http://github.com/kmshi/haxe-ionic-cordova",
+  "license": "MIT",
+  "tags": [ "angular", "js","ionic","cordova" ],
+  "description": "haxe extern for ionic and cordova",
+  "version": "0.0.1",
+  "classPath": ".",
+  "releasenote": "First initiated",
+  "contributors": [ "richard" ],
+  "dependencies": {}
+}
