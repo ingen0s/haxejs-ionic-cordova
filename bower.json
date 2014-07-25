@@ -1,5 +1,5 @@
 {
-  "name": "haxe-ionic-cordova",
+  "name": "haxejs-ionic-cordova",
   "dependencies": {
 	"ionic":"0.9.27"
 	,"ngCordova":""
