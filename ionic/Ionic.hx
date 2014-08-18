@@ -1,9 +1,24 @@
 package ionic;
-import ng.Angular;
 
+import ng.Angular;
+import ng.NgAnimate;
+import ng.NgSanitize;
+import ng.NgUiRouter;
+
+//import ng.JQuery;
+import js.html.Element;
 /**
  * ...
  * @author Richard Shi
+ *
+ * Out of the box, Ionic automatically removes the 300ms delay in order to make Ionic apps feel more "native" like. 
+ * Resultingly, other solutions such as fastclick and Angular's ngTouch should not be included, to avoid conflicts.
+ * In some cases, third-party libraries may also be working with touch events which can interfere with the tap system. 
+ * For example, mapping libraries like Google or Leaflet Maps often implement a touch detection system which conflicts with Ionic's tap system.
+ * To disable the tap for an element and all of its children elements, add the attribute data-tap-disabled="true".
+ * <div data-tap-disabled="true">
+ *   <div id="google-map"></div>
+ * </div>
  */
 @:initPackage
 extern class Ionic {
@@ -239,4 +254,115 @@ extern class NgIonicActionSheet{
 		}):hideSheet;
 }
 
-//next -- http://ionicframework.com/docs/api/service/$ionicPopup/
+//@:native("$ionicPopup")
+extern class NgIonicPopup{
+	public function show(options:{
+		title:String,
+		subTitle:String,
+		template:String,
+		templateUrl:String,
+		scope:NgScope,
+		buttons:Array
+		):NgPromise;
+
+	public function alert(options:{
+		title:String,
+		subTitle:String,
+		template:String,
+		templateUrl:String,
+		okText:String,
+		okType:String
+		):NgPromise;
+
+	public function confirm(options:{
+		title:String,
+		subTitle:String,
+		template:String,
+		templateUrl:String,
+		cancelText:String,
+		cancelType:String,
+		okText:String,
+		okType:String
+		):NgPromise;
+
+	public function prompt(options:{
+		title:String,
+		subTitle:String,
+		template:String,
+		templateUrl:String,
+		inputType:String,
+		inputPlaceholder:String,
+		cancelText:String,
+		cancelType:String,
+		okText:String,
+		okType:String
+		):NgPromise;
+}
+
+//@:native("$ionicLoading")
+//if options is ignore, it will use $ionicLoadingConfig constant which you can set up by module.constant()
+extern class NgIonicLoading{
+	public function show(?options:{
+		template:String,
+		templateUrl:String,
+		noBackdrop:Bool,
+		delay:Int,
+		duration:Int
+		}):hideSheet;
+}
+
+typedef deregisterBackButtonAction = Void->Void;
+//@:native("$ionicPlatform")
+extern class NgIonicPlatform{
+	public function onHardwareBackButton(callback:Dynamic):Void;
+	public function offHardwareBackButton(callback:Dynamic):Void;
+	public function registerBackButtonAction(callback:Dynamic, priority:Int, ?actionId:String):deregisterBackButtonAction;
+	public function ready(?callback:Dynamic):NgPromise;
+}
+
+typedef IonicGesture = Dynamic;
+
+//@:native("$ionicGesture")
+extern class NgIonicGesture{
+	/**
+	* eventtype: hold, tap, doubletap, drag, dragstart, dragend, dragup, dragdown, 
+	* dragleft, dragright, swipe, swipeup, swipedown, swipeleft, swiperight, 
+	* transform, transformstart, transformend, rotate, pinch, pinchin, pinchout, touch, release
+	*/
+	public function on(eventType:String, callback:Dynamic, element:Element):IonicGesture;
+	public function off(gesture:IonicGesture, eventType:String, callback:Dynamic):Void;
+}
+
+//@:native("$ionicBackdrop")
+extern class NgIonicBackdrop{
+	public function retain():Void;
+	public function release():Void;
+}
+
+//@:native("$ionicPosition")
+extern class NgIonicPosition{
+	public function position(element:Element):{left:Int,top:Int,width:Int,height:Int};
+	public function offset(element:Element):{left:Int,top:Int,width:Int,height:Int};
+}
+
+@:native("ionic.Platform")
+extern class IonicPlatform{
+	public function ready(callback:Dynamic):Void;
+	public function setGrade(grade:String):Void;
+	//public function device():{};//cordova device object
+	public function isWebView():Bool;
+	public function isIPad():Bool;
+	public function isIOS():Bool;
+	public function isAndroid():Bool;
+	public function isWindowsPhone():Bool;
+	public function platform():String;
+	public function version():String;
+	public function exitApp():Void;
+	public function showStatusBar(shouldShow:Bool):Void;
+	public function fullScreen(?showFullScreen:Bool, ?showStatusBar:Bool):Void;
+
+	public var isReady:Bool;
+	public var isFullScreen:Bool;
+	public var platforms:Array<String>;
+	public var grade:String;
+}
