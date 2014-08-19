@@ -4,11 +4,12 @@ import ng.Angular;
 import ng.NgAnimate;
 import ng.NgSanitize;
 import ng.NgUiRouter;
+import ionic.Cordova;
 
 //import ng.JQuery;
 import js.html.Element;
 /**
- * ...
+ * haxe extern for ionic framework
  * @author Richard Shi
  *
  * Out of the box, Ionic automatically removes the 300ms delay in order to make Ionic apps feel more "native" like. 
@@ -349,7 +350,7 @@ extern class NgIonicPosition{
 extern class IonicPlatform{
 	public function ready(callback:Dynamic):Void;
 	public function setGrade(grade:String):Void;
-	//public function device():{};//cordova device object
+	public function device():Device;//cordova device object
 	public function isWebView():Bool;
 	public function isIPad():Bool;
 	public function isIOS():Bool;
