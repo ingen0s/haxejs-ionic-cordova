@@ -146,3 +146,39 @@ extern class Device{
 	public var uuid:String;
 	public var version:String;
 }
+
+//@:native("$cordovaDeviceMotion")
+extern class NgCordovaDeviceMotion{
+	public function getCurrentAcceleration():NgPromise;//successCallback
+	public function watchAcceleration(options:{frequency:Int}):NgPromise;//notifyCallback
+	public function clearWatch():Void;
+}
+
+typedef Acceleration = {
+	x:Int, //Amount of acceleration on the x-axis. (in m/s^2) 
+	y:Int, //Amount of acceleration on the y-axis. (in m/s^2) 
+	z:Int, //Amount of acceleration on the z-axis. (in m/s^2) 
+	timestamp:Int //Creation timestamp in milliseconds.
+}
+
+//@:native("$cordovaDeviceOrientation")
+extern class NgCordovaDeviceOrientation{
+	//public function getCurrentHeading():NgPromise;//successCallback
+	public function watchHeading(options:{frequency:Int}):NgPromise;//notifyCallback
+	//public function clearWatch():Void;
+}
+
+typedef CompassHeading = {
+	magneticHeading:Int,//The heading in degrees from 0-359.99 at a single moment in time. 
+	trueHeading:Int,//The heading relative to the geographic North Pole in degrees 0-359.99 at a single moment in time. A negative value indicates that the true heading can't be determined. 
+	headingAccuracy:Int,//The deviation in degrees between the reported heading and the true heading.
+	timestamp:Int //The time at which this heading was determined. (milliseconds)
+}
+
+//@:native("$cordovaDialogs")
+extern class NgCordovaDialogs{
+	public function alert(message:String, ?callback:Dynamic, ?title:String, ?buttonName:String):Void;
+	public function confirm(message:String, ?callback:Dynamic, ?title:String, ?buttonName:String):Void;
+	public function prompt(message:String, ?promptCallback:Dynamic, ?title:String, ?buttonLabels:Array<String>, ?defaultText:String):Void;
+	public function beep(times:Int):Void;
+}
