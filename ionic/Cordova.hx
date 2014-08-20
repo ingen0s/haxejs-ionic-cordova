@@ -8,7 +8,7 @@ import ng.Angular;
  *
  */
 @:initPackage
-extern class Cordova {
+extern class Cordova
 {
     private static function __init__() : Void untyped {
         #if embed_js
@@ -31,34 +31,34 @@ extern class NgCordovaBarcodeScanner{
 
 @:native("cordova.plugins.barcodeScanner")
 extern class BarcodeScanner{
-	public var Encode:{
+	public static var Encode:{
 		TEXT_TYPE: String,//"TEXT_TYPE"
         EMAIL_TYPE: String,//"EMAIL_TYPE"
 		PHONE_TYPE: String,//"PHONE_TYPE"
 		SMS_TYPE: String //"SMS_TYPE"
 	};
 
-	public var format:{
-		"all_1D": Int,//61918
-		"aztec": Int,//1
-		"codabar": Int,//2
-		"code_128": Int,//16
-		"code_39": Int,//4
-		"code_93": Int,//8
-		"data_MATRIX": Int,//32
-		"ean_13": Int,//128
-		"ean_8": Int,//64
-		"itf": Int,//256
-		"maxicode": Int,//512
-		"msi": Int,//131072
-		"pdf_417": Int,//1024
-		"plessey": Int,//262144
-		"qr_CODE": Int,//2048
-		"rss_14": Int,//4096
-		"rss_EXPANDED": Int,//8192
-		"upc_A": Int,//16384
-		"upc_E": Int,//32768
-		"upc_EAN_EXTENSION": Int//65536
+	public static var format:{
+		all_1D: Int,//61918
+		aztec: Int,//1
+		codabar: Int,//2
+		code_128: Int,//16
+		code_39: Int,//4
+		code_93: Int,//8
+		data_MATRIX: Int,//32
+		ean_13: Int,//128
+		ean_8: Int,//64
+		itf: Int,//256
+		maxicode: Int,//512
+		msi: Int,//131072
+		pdf_417: Int,//1024
+		plessey: Int,//262144
+		qr_CODE: Int,//2048
+		rss_14: Int,//4096
+		rss_EXPANDED: Int,//8192
+		upc_A: Int,//16384
+		upc_E: Int,//32768
+		upc_EAN_EXTENSION: Int//65536
 	};
 }
 
@@ -83,35 +83,35 @@ extern class NgCordovaCamera{
 
 @:native("cordova.plugins.Camera")
 extern class Camera{
-	public var DestinationType:{
+	public static var DestinationType:{
 	    DATA_URL : Int,      // 0,Return image as base64-encoded string
 	    FILE_URI : Int,      // 1,Return image file URI
 	    NATIVE_URI : Int     // 2,Return image native URI (e.g., assets-library:// on iOS or content:// on Android)
 	};
 
-	public var PictureSourceType:{
+	public static var PictureSourceType:{
 	    PHOTOLIBRARY : Int, //0
 	    CAMERA : Int, //1
 	    SAVEDPHOTOALBUM : Int //2
 	};
 
-	public var EncodingType:{
+	public static var EncodingType:{
 	    JPEG : Int,               //0,Return JPEG encoded image
 	    PNG : Int                 //1,Return PNG encoded image
 	};
 
-	public var MediaType:{
+	public static var MediaType:{
 	    PICTURE: Int,    //0, allow selection of still pictures only. DEFAULT. Will return format specified via DestinationType
 	    VIDEO: Int,      //1, allow selection of video only, WILL ALWAYS RETURN FILE_URI
 	    ALLMEDIA : Int   //2, allow selection from all media types
 	};
 
-	public var Direction = {
+	public static var Direction:{
 	    BACK : Int,      //0, Use the back-facing camera
 	    FRONT : Int      //1, Use the front-facing camera
 	};
 
-	public var PopoverArrowDirection:{
+	public static var PopoverArrowDirection:{
         ARROW_UP : Int,       	//1, matches iOS UIPopoverArrowDirection constants
         ARROW_DOWN : Int,		//2
         ARROW_LEFT : Int,		//4
@@ -122,9 +122,9 @@ extern class Camera{
 
 //@:native("$cordovaContacts")
 extern class NgCordovaContacts{
-	public function save(contact):NgPromise;
-	public function remove(contact):NgPromise;
-	public function clone(contact):NgPromise;
+	public function save(contact:{}):NgPromise;
+	public function remove(contact:{}):NgPromise;
+	public function clone(contact:{}):NgPromise;
 	public function find(options:{}):NgPromise;
 }
 

@@ -23,7 +23,6 @@ import js.html.Element;
  */
 @:initPackage
 extern class Ionic {
-{
     private static function __init__() : Void untyped {
         #if embed_js
           haxe.macro.Compiler.includeFile("www/bower_components/ionic/release/js/ionic.min.js");
@@ -233,18 +232,18 @@ extern class NgIonicPopover{
 }
 
 extern class IonicPopover{
-	public function show(event):NgPromise;
+	public function show(event:{}):NgPromise;
 	public function hide():NgPromise;
 	public function remove():NgPromise;
 	public function isShown():Bool;
 }
 
-typedef hideSheet = Void->Void;
+typedef HideSheet = Void->Void;
 
 //@:native("$ionicActionSheet")
 extern class NgIonicActionSheet{
 	public function show(options:{
-		buttons:Array,
+		buttons:Array<{}>,
 		titleText:String,
 		cancelText:String,
 		destructiveText:String,
@@ -252,7 +251,7 @@ extern class NgIonicActionSheet{
 		buttonClicked:Dynamic,
 		destructiveButtonClicked:Dynamic,
 		cancelOnStateChange:Bool
-		}):hideSheet;
+		}):HideSheet;
 }
 
 //@:native("$ionicPopup")
@@ -263,7 +262,7 @@ extern class NgIonicPopup{
 		template:String,
 		templateUrl:String,
 		scope:NgScope,
-		buttons:Array
+		buttons:Array<{}>}
 		):NgPromise;
 
 	public function alert(options:{
@@ -272,7 +271,7 @@ extern class NgIonicPopup{
 		template:String,
 		templateUrl:String,
 		okText:String,
-		okType:String
+		okType:String}
 		):NgPromise;
 
 	public function confirm(options:{
@@ -283,7 +282,7 @@ extern class NgIonicPopup{
 		cancelText:String,
 		cancelType:String,
 		okText:String,
-		okType:String
+		okType:String}
 		):NgPromise;
 
 	public function prompt(options:{
@@ -296,7 +295,7 @@ extern class NgIonicPopup{
 		cancelText:String,
 		cancelType:String,
 		okText:String,
-		okType:String
+		okType:String}
 		):NgPromise;
 }
 
@@ -309,15 +308,16 @@ extern class NgIonicLoading{
 		noBackdrop:Bool,
 		delay:Int,
 		duration:Int
-		}):hideSheet;
+		}):Void;
+	public function hide():Void;
 }
 
-typedef deregisterBackButtonAction = Void->Void;
+typedef DeregisterBackButtonAction = Void->Void;
 //@:native("$ionicPlatform")
 extern class NgIonicPlatform{
 	public function onHardwareBackButton(callback:Dynamic):Void;
 	public function offHardwareBackButton(callback:Dynamic):Void;
-	public function registerBackButtonAction(callback:Dynamic, priority:Int, ?actionId:String):deregisterBackButtonAction;
+	public function registerBackButtonAction(callback:Dynamic, priority:Int, ?actionId:String):DeregisterBackButtonAction;
 	public function ready(?callback:Dynamic):NgPromise;
 }
 
