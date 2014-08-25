@@ -25,21 +25,22 @@ import js.html.Element;
 extern class Ionic {
     private static function __init__() : Void untyped {
         #if embed_js
-          haxe.macro.Compiler.includeFile("www/bower_components/ionic/release/js/ionic.min.js");
-          haxe.macro.Compiler.includeFile("www/bower_components/ionic/release/js/ionic-angular.min.js");
+          //Looks like there is a bug that they can not be embeded
+          //haxe.macro.Compiler.includeFile("www/bower_components/ionic/js/ionic.js");
+          //haxe.macro.Compiler.includeFile("www/bower_components/ionic/js/ionic-angular.js");
         #else
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/release/js/ionic.min.js");
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/release/js/ionic.js");
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/release/js/ionic-angular.min.js");
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/release/js/ionic-angular.js");
+          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/js/ionic.min.js");
+          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/js/ionic.js");
+          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/js/ionic-angular.min.js");
+          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/js/ionic-angular.js");
 
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/release/css/ionic.min.css");
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/release/css/ionic.css");
+          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/css/ionic.min.css");
+          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/css/ionic.css");
 
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/release/fonts/ionicons.eot");
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/release/fonts/ionicons.svg");
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/release/fonts/ionicons.ttf");
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/release/fonts/ionicons.woff");
+          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/fonts/ionicons.eot");
+          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/fonts/ionicons.svg");
+          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/fonts/ionicons.ttf");
+          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/fonts/ionicons.woff");
         #end
 		//add "ionic" to global module dependencies
 		if (Angular.isUndefined(window.hxdeps))window.hxdeps = [];
