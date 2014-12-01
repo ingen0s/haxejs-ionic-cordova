@@ -30,22 +30,21 @@ extern class Ionic {
           //haxe.macro.Compiler.includeFile("www/bower_components/ionic/js/ionic-angular.js");
           ng.macro.InjectionBuilder.embedAlert("Can not embed ionic,please reference by script tag after other scripts: bower_components/ionic/js/ionic.min.js");
           ng.macro.InjectionBuilder.embedAlert("Can not embed ionic-angular,please reference by script tag after other scripts: bower_components/ionic/js/ionic-angular.min.js");
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/js/ionic.min.js");
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/js/ionic-angular.min.js");
-        #else
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/js/ionic.min.js");
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/js/ionic.js");
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/js/ionic-angular.min.js");
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/js/ionic-angular.js");
-
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/css/ionic.min.css");
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/css/ionic.css");
-
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/fonts/ionicons.eot");
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/fonts/ionicons.svg");
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/fonts/ionicons.ttf");
-          ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/fonts/ionicons.woff");
         #end
+
+        ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/js/ionic.min.js");
+        ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/js/ionic.js");
+        ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/js/ionic-angular.min.js");
+        ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/js/ionic-angular.js");
+
+        ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/css/ionic.min.css");
+        ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/css/ionic.css");
+
+        ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/fonts/ionicons.eot");
+        ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/fonts/ionicons.svg");
+        ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/fonts/ionicons.ttf");
+        ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/fonts/ionicons.woff");
+
 		//add "ionic" to global module dependencies
 		if (Angular.isUndefined(window.hxdeps))window.hxdeps = [];
 		window.hxdeps.push("ionic");
