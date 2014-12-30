@@ -45,6 +45,9 @@ extern class Ionic {
         ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/fonts/ionicons.ttf");
         ng.macro.InjectionBuilder.copyFile("www/bower_components/ionic/fonts/ionicons.woff");
 
+        ng.macro.InjectionBuilder.moduleDependency("ionic","bower_components/ionic/js/ionic");
+        ng.macro.InjectionBuilder.moduleDependency("ionic-angular","bower_components/ionic/js/ionic-angular",["angular","ionic"]);
+
 		//add "ionic" to global module dependencies
 		if (Angular.isUndefined(window.hxdeps))window.hxdeps = [];
 		window.hxdeps.push("ionic");

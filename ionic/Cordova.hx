@@ -16,6 +16,7 @@ extern class Cordova
         #else
           ng.macro.InjectionBuilder.copyFile("www/bower_components/ngCordova/dist/ng-cordova.min.js");
           ng.macro.InjectionBuilder.copyFile("www/bower_components/ngCordova/dist/ng-cordova.js");
+          ng.macro.InjectionBuilder.moduleDependency("ngCordova","bower_components/ngCordova/dist/ng-cordova",["angular"]);
         #end
 		//add "ngCordova" to global module dependencies
 		if (Angular.isUndefined(window.hxdeps))window.hxdeps = [];
