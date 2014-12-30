@@ -4,7 +4,7 @@ import ng.Angular;
 import ng.NgAnimate;
 import ng.NgSanitize;
 import ng.NgUiRouter;
-import ionic.Cordova;
+//import ionic.Cordova;
 
 //import ng.JQuery;
 import js.html.Element;
@@ -357,7 +357,7 @@ extern class NgIonicPosition{
 extern class IonicPlatform{
 	public function ready(callback:Dynamic):Void;
 	public function setGrade(grade:String):Void;
-	public function device():Device;//cordova device object
+	//public function device():Device;//cordova device object
 	public function isWebView():Bool;
 	public function isIPad():Bool;
 	public function isIOS():Bool;
